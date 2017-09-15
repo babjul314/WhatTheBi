@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android: android:background="#00b0f0"
+    tools:context="org.shinhan.whatthebi.MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="300dp"
+        android:layout_height="59dp"
+        android:text="What da bi"
+
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textSize="@android:dimen/app_icon_size"
+        tools:layout_editor_absoluteX="55dp"
+        tools:layout_editor_absoluteY="109dp" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="34dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="PassWord"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        tools:layout_editor_absoluteX="85dp" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="ID"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/editText2"
+        tools:layout_editor_absoluteX="85dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="205dp"
+        android:layout_height="51dp"
+        android:text="SIGN UP"
+        android:textAlignment="center"
+        tools:layout_editor_absoluteX="90dp"
+        tools:layout_editor_absoluteY="346dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="122dp"
+        android:layout_height="47dp"
+        android:text="Button"
+        android:textAlignment="center"
+        tools:layout_editor_absoluteX="131dp"
+        android:layout_marginTop="21dp"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+
+</android.support.constraint.ConstraintLayout>
