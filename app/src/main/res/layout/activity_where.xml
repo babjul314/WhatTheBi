@@ -10,12 +10,12 @@
 
     <TextView
         android:id="@+id/textView_where_message"
-        android:layout_width="299dp"
-        android:layout_height="57dp"
-        android:text="사는곳은 "
+        android:layout_width="162dp"
+        android:layout_height="35dp"
+        android:text="거주지는"
         android:textAlignment="center"
         android:textColor="@color/colorWhite"
-        android:textSize="50dp"
+        android:textSize="30dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/textView3"
         app:layout_constraintTop_toTopOf="parent"
@@ -24,39 +24,41 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
-        app:layout_constraintVertical_bias="0.925" />
+        app:layout_constraintHorizontal_bias="0.208"
+        app:layout_constraintVertical_bias="0.993" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="어디인가요?"
-        android:textColor="@color/colorWhite"
-        android:textSize="50dp"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginBottom="111dp"
+        android:layout_marginBottom="129dp"
         app:layout_constraintBottom_toTopOf="@+id/editText4"
-        app:layout_constraintHorizontal_bias="0.504" />
+        app:layout_constraintHorizontal_bias="0.777"
+        android:textColor="@color/colorWhite"
+        android:textSize="30dp"/>
 
     <EditText
         android:id="@+id/editText4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="45dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="입력"
+        android:text="설정을 위해 터치"
+        android:textColor="@color/colorWhite"
         android:textAlignment="center"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginBottom="45dp"
         app:layout_constraintBottom_toTopOf="@+id/button4"
-        app:layout_constraintHorizontal_bias="0.503" />
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textSize="10dp"/>
 
     <Button
         android:id="@+id/button4"
@@ -66,11 +68,12 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:background="@drawable/btn_border"
-        android:text="다음"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         tools:layout_editor_absoluteX="134dp"
-        tools:layout_editor_absoluteY="436dp" />
+        tools:layout_editor_absoluteY="436dp"
+        android:text="다음"
+        android:textColor="@color/colorWhite"/>
 
 </android.support.constraint.ConstraintLayout>
