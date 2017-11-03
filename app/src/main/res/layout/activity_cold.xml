@@ -36,7 +36,7 @@
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginBottom="106dp"
-        app:layout_constraintBottom_toTopOf="@+id/editText_cold_temp"
+        app:layout_constraintBottom_toTopOf="@+id/editText_time_time"
         app:layout_constraintHorizontal_bias="0.795" />
     <TextView
         android:id="@+id/textView5"
@@ -46,11 +46,11 @@
         android:textColor="@color/colorWhite"
         android:textSize="25dp"
         android:layout_marginBottom="42dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_cold_submit"
+        app:layout_constraintBottom_toTopOf="@+id/button_activitytime_submit"
         android:layout_marginRight="89dp"
         app:layout_constraintRight_toRightOf="parent" />
     <EditText
-        android:id="@+id/editText_cold_temp"
+        android:id="@+id/editText_time_time"
         android:layout_width="135dp"
         android:layout_height="43dp"
         android:ems="10"
@@ -60,11 +60,11 @@
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginBottom="42dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_cold_submit"
+        app:layout_constraintBottom_toTopOf="@+id/button_activitytime_submit"
         app:layout_constraintHorizontal_bias="1.0" />
 
     <Button
-        android:id="@+id/button_cold_submit"
+        android:id="@+id/button_activitytime_submit"
         android:layout_width="90dp"
         android:layout_height="41dp"
         android:layout_marginBottom="53dp"

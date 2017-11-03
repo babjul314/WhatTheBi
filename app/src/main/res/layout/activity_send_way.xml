@@ -25,7 +25,7 @@
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/textView12"
         app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintVertical_bias="0.952" />
+        app:layout_constraintVertical_bias="0.692" />
 
     <TextView
         android:id="@+id/textView12"
@@ -38,16 +38,12 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginBottom="73dp"
-        app:layout_constraintBottom_toTopOf="@+id/checkBox"
-        app:layout_constraintHorizontal_bias="0.561" />
-
-
-
-
+        android:layout_marginBottom="53dp"
+        app:layout_constraintBottom_toTopOf="@+id/checkBox_activitySendWay_message"
+        app:layout_constraintHorizontal_bias="0.619" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/button_activityComplete_next"
         android:layout_width="100dp"
         android:layout_height="33dp"
         android:background="@drawable/btn_border"
@@ -61,28 +57,29 @@
         android:layout_marginBottom="56dp" />
 
     <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/checkBox_activitySendWay_message"
+        android:layout_width="93dp"
+        android:layout_height="35dp"
         android:text="문자"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/checkBox2"
-        app:layout_constraintHorizontal_bias="0.458" />
+        android:layout_marginBottom="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/checkBox_activitySendWay_app"
+        app:layout_constraintHorizontal_bias="0.476" />
 
     <CheckBox
-        android:id="@+id/checkBox2"
+        android:id="@+id/checkBox_activitySendWay_app"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="어플알람"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="56dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:text="어플알람"
+        app:layout_constraintBottom_toTopOf="@+id/button_activityComplete_next"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginBottom="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/button4" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.461" />
 
 </android.support.constraint.ConstraintLayout>

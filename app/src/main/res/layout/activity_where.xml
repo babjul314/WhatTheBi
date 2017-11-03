@@ -24,8 +24,8 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.208"
-        app:layout_constraintVertical_bias="0.993" />
+        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintVertical_bias="0.513" />
 
     <TextView
         android:id="@+id/textView3"
@@ -36,9 +36,9 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginBottom="129dp"
+        android:layout_marginBottom="74dp"
         app:layout_constraintBottom_toTopOf="@+id/editText4"
-        app:layout_constraintHorizontal_bias="0.777"
+        app:layout_constraintHorizontal_bias="0.834"
         android:textColor="@color/colorWhite"
         android:textSize="30dp"/>
 
@@ -46,7 +46,7 @@
         android:id="@+id/editText4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="45dp"
+        android:layout_marginBottom="96dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:ems="10"
@@ -54,14 +54,14 @@
         android:text="설정을 위해 터치"
         android:textColor="@color/colorWhite"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
-        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintBottom_toTopOf="@+id/button_activityComplete_next"
+        app:layout_constraintHorizontal_bias="0.459"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:textSize="10dp"/>
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/button_activityComplete_next"
         android:layout_width="100dp"
         android:layout_height="33dp"
         android:layout_marginBottom="42dp"

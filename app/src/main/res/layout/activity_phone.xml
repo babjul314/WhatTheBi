@@ -38,11 +38,11 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginBottom="96dp"
-        app:layout_constraintBottom_toTopOf="@+id/editText"
+        android:layout_marginBottom="133dp"
+        app:layout_constraintBottom_toTopOf="@+id/editText_activityPhone_num"
         app:layout_constraintHorizontal_bias="0.509" />
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/button_activityComplete_next"
         android:layout_width="100dp"
         android:layout_height="33dp"
         android:background="@drawable/btn_border"
@@ -56,7 +56,7 @@
         android:layout_marginBottom="49dp" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editText_activityPhone_num"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -69,6 +69,6 @@
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginBottom="63dp"
-        app:layout_constraintBottom_toTopOf="@+id/button4" />
+        app:layout_constraintBottom_toTopOf="@+id/button_activityComplete_next" />
 
 </android.support.constraint.ConstraintLayout>

@@ -16,6 +16,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".ColdActivity"/>
+        <activity android:name=".CompleteActivity"/>
+        <activity android:name=".EndActivity"/>
+        <activity android:name=".HotActivity"/>
+        <activity android:name=".PhoneActivity"/>
+        <activity android:name=".SendWayActivity"/>
+        <activity android:name=".SingInActivity"/>
+        <activity android:name=".TimeActivity"/>
+        <activity android:name=".TypeAlarmActivity"/>
+        <activity android:name=".WhereActivity"/>
+
+
     </application>
 
 </manifest>

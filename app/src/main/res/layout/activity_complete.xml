@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="184dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintBottom_toTopOf="@+id/button_activityComplete_next"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="8dp"
@@ -36,7 +36,7 @@
         tools:layout_editor_absoluteX="38dp"
         tools:layout_editor_absoluteY="220dp" />
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/button_activityComplete_next"
         android:layout_width="100dp"
         android:layout_height="33dp"
         android:background="@drawable/btn_border"
