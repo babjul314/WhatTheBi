@@ -40,8 +40,15 @@ public class HotActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 setHot_temp(editText_hot_temp.getText().toString());
-                intent.setClass(getApplicationContext(),ColdActivity.class);
-                intent.putExtra("hotTemp",hot_temp);
+                if(intent.getExtras().getString("isCold","").equals("true"))
+                {
+                    intent.setClass(getApplicationContext(),ColdActivity.class);
+
+                }else
+                {
+                    intent.setClass(getApplicationContext(),TimeActivity.class);
+                }
+
                 startActivity(intent);
             }
         });

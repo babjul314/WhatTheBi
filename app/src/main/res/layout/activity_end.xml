@@ -24,8 +24,8 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/textView12"
-        app:layout_constraintHorizontal_bias="0.367"
-        app:layout_constraintVertical_bias="0.747" />
+        app:layout_constraintHorizontal_bias="0.303"
+        app:layout_constraintVertical_bias="0.691" />
 
     <TextView
         android:id="@+id/textView12"
@@ -38,7 +38,7 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginBottom="59dp"
+        android:layout_marginBottom="135dp"
         app:layout_constraintBottom_toTopOf="@+id/button_end_fisnish" />
 
     <Button

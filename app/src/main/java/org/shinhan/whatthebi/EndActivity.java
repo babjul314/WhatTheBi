@@ -20,9 +20,8 @@ public class EndActivity extends AppCompatActivity {
         button_fisnish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                moveTaskToBack(true);
-                finish();
-                android.os.Process.killProcess(android.os.Process.myPid());
+                finishAffinity();
+
             }
         });
 

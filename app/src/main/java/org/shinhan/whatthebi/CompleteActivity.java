@@ -1,13 +1,21 @@
 package org.shinhan.whatthebi;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.Button;
+import android.util.Log;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import java.util.Calendar;
+
+import cz.msebera.android.httpclient.Header;
 
 /**
  * Created by 60029509 on 2017-09-22.
@@ -15,28 +23,30 @@ import com.google.gson.Gson;
 
 public class CompleteActivity extends AppCompatActivity {
 
-    Button button_next;
+
     Intent intent;
-    String coldTemp;
+    String         coldTemp;
     String         hotTemp;
-    String phoneNumber;
+    String          phoneNumber;
     String        id;
-    String password;
+    String         password;
     String         isSendMessage;
-    String isSendApp;
+    String          isSendApp;
     String        time;
-    String isHot;
+    String          isHot;
     String         isCold;
-    String isRain;
+    String          isRain;
     String         isDust;
-    String jsonData;
-    Gson gson= new Gson();
+    RequestParams params  ;
+    String Base_url="https://watdabi-project-babjul814.c9users.io/";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        intent = getIntent();
-        intent.setClass(getApplicationContext(),EndActivity.class);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_complete);
+        Log.e("1","1 시작");
+        intent = getIntent();
+        intent.setClass(getApplicationContext(),EndActivity.class);
         coldTemp=intent.getExtras().getString("coldTemp","");
         hotTemp=intent.getExtras().getString("hotTemp","");
         phoneNumber=intent.getExtras().getString("phoneNumber","");
@@ -49,144 +59,85 @@ public class CompleteActivity extends AppCompatActivity {
         isCold=intent.getExtras().getString("isCold","");
         isRain=intent.getExtras().getString("isRain","");
         isDust=intent.getExtras().getString("isDust","");
-        Data data = new Data();
-        data.setColdTemp(coldTemp);
-        data.setHotTemp(hotTemp);
-        data.setPhoneNumber(phoneNumber);
-        data.setId(id);
-        data.setPassword(password);
-        data.setIsSendApp(isSendApp);
-        data.setTime(time);
-        data.setIsHot(isHot);
-        data.setIsCold(isCold);
-        data.setIsRain(isRain);
-        data.setIsDust(isDust);
-        String sendData=gson.toJson(data);
+        params = new RequestParams();
+        params.put("coldTemp", coldTemp);
+        params.put("hotTemp", hotTemp);
+        params.put("phoneNumber", phoneNumber);
+        params.put("id", id);
+        params.put("coldTemp", coldTemp);
+        params.put("password", password);
+        params.put("isSendMessage", isSendMessage);
+        params.put("isSendApp", isSendApp);
+        params.put("time", time);
+        params.put("isHot", isHot);
+        params.put("isCold", isCold);
+        params.put("isCold", isCold);
+        params.put("isRain", isRain);
+        params.put("isDust", isDust);
 
-        Toast.makeText(getApplication(),
-                sendData
-                ,Toast.LENGTH_LONG).show();
-        button_next=(Button)findViewById(R.id.button_activityComplete_next);
-        button_next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        ClientHttp.get("/regWeaInf", params, new AsyncHttpResponseHandler() {
+                @Override
+                public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                    String result =new String(responseBody);
+                    if("true".equals(result))
+                    {
+                         SharedPreferences pref = getSharedPreferences("watdabi", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = pref.edit();
+                        editor.putString("id", id);
+                        editor.commit();
+                        int hour=intent.getExtras().getInt("setUphour");
+                        int minute=intent.getExtras().getInt("setUpminute");
+                        Calendar calendar = Calendar.getInstance();
 
-                startActivity(intent);
-            }
-        });
-    }
+                        int nowyear = calendar.get(Calendar.YEAR);//올해
+                        int nowmonth = calendar.get(Calendar.MONTH);//이번달(10월이면 9를 리턴받는다. calendar는 0월부터 11월까지로 12개의월을 사용)
+                        int nowday = calendar.get(Calendar.DAY_OF_MONTH);//오늘날짜
+                        int nowhour = calendar.get(Calendar.HOUR_OF_DAY);//현재시간
+                        int nowminute = calendar.get(Calendar.MINUTE);//현재분
 
-    public class Data{
-        String coldTemp;
-        String hotTemp;
-        String phoneNumber;
-        String id;
-        String password;
-        String isSendMessage;
-        String isSendApp;
-        String  time;
-        String isHot;
-        String  isCold;
-        String isRain;
-        String  isDust;
-        public String getColdTemp() {
-            return coldTemp;
-        }
+                        if((nowhour*60+nowminute)>hour*60+minute)  //이미시간이 지났을때
+                        {
+                            calendar.set(nowyear, nowmonth ,nowday+1 ,hour, minute,00);//내일울린다
 
-        public void setColdTemp(String coldTemp) {
-            this.coldTemp = coldTemp;
-        }
+                        }else{
+                            calendar.set(nowyear, nowmonth ,nowday ,hour, minute,00);//오늘울린다
+                        }
 
-        public String getHotTemp() {
-            return hotTemp;
-        }
 
-        public void setHotTemp(String hotTemp) {
-            this.hotTemp = hotTemp;
-        }
 
-        public String getPhoneNumber() {
-            return phoneNumber;
-        }
+                        AlarmManager alarm = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                        Intent intent2 = new Intent(getApplicationContext(),AlarmBroadCastReciever.class);
+                        intent2.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                        PendingIntent sender = PendingIntent.getBroadcast(getApplication(), 0, intent2, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        public void setPhoneNumber(String phoneNumber) {
-            this.phoneNumber = phoneNumber;
-        }
+                        Log.e("알람시간:",""+calendar.getTime());
+                        alarm.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, sender );
+                        Intent intent = new Intent(getApplicationContext(),EndActivity.class);
+                        startActivity(intent);
 
-        public String getId() {
-            return id;
-        }
+                    }else
+                    {
+                        Toast.makeText(getApplicationContext(),"등록에 실패하였습니다.",Toast.LENGTH_LONG).show();
+                        finishAffinity();
+                    }
 
-        public void setId(String id) {
-            this.id = id;
-        }
+                }
+                @Override
+                public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                    String Text =new String(responseBody);
+                    Log.e("받은데이터" ,Text);
+                }
+            });
 
-        public String getPassword() {
-            return password;
-        }
 
-        public void setPassword(String password) {
-            this.password = password;
-        }
-
-        public String getIsSendMessage() {
-            return isSendMessage;
-        }
-
-        public void setIsSendMessage(String isSendMessage) {
-            this.isSendMessage = isSendMessage;
-        }
-
-        public String getIsSendApp() {
-            return isSendApp;
-        }
-
-        public void setIsSendApp(String isSendApp) {
-            this.isSendApp = isSendApp;
-        }
-
-        public String getTime() {
-            return time;
-        }
-
-        public void setTime(String time) {
-            this.time = time;
-        }
-
-        public String getIsHot() {
-            return isHot;
-        }
-
-        public void setIsHot(String isHot) {
-            this.isHot = isHot;
-        }
-
-        public String getIsCold() {
-            return isCold;
-        }
-
-        public void setIsCold(String isCold) {
-            this.isCold = isCold;
-        }
-
-        public String getIsRain() {
-            return isRain;
-        }
-
-        public void setIsRain(String isRain) {
-            this.isRain = isRain;
-        }
-
-        public String getIsDust() {
-            return isDust;
-        }
-
-        public void setIsDust(String isDust) {
-            this.isDust = isDust;
-        }
 
 
     }
+
 
 
 }
+
+
+
+

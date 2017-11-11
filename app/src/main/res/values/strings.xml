@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">WhatThebi</string>
+    <string name="title_activity_alram">AlramActivity</string>
+    <string name="title_activity_alam_cold">alamColdActivity</string>
+    <string name="title_activity_alam_hot">alamHotActivity</string>
+    <string name="title_activity_alam_rain">alamRainActivity</string>
 </resources>

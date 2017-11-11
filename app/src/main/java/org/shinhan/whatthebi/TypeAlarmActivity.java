@@ -27,32 +27,32 @@ public class TypeAlarmActivity extends AppCompatActivity {
         return isHot;
     }
 
-    public void setHot(boolean hot) {
-        isHot = "true";
+    public void setHot(String hot) {
+        isHot = hot;
     }
 
     public String isCold() {
         return isCold;
     }
 
-    public void setCold(boolean cold) {
-        isCold = "true";
+    public void setCold(String cold) {
+        isCold = cold;
     }
 
     public String isRain() {
         return isRain;
     }
 
-    public void setRain(boolean rain) {
-        isRain = "true";
+    public void setRain(String rain) {
+        isRain = rain;
     }
 
     public String isDust() {
         return isDust;
     }
 
-    public void setDust(boolean dust) {
-        isDust = "true";
+    public void setDust(String dust) {
+        isDust = dust;
     }
 
 
@@ -76,8 +76,6 @@ public class TypeAlarmActivity extends AppCompatActivity {
                 if(checkBox_hot.isChecked())
                 {
                     intent.setClass(getApplicationContext(),HotActivity.class);
-
-
                 }else if(checkBox_cold.isChecked())
                 {
                     intent.setClass(getApplicationContext(),ColdActivity.class);
@@ -95,38 +93,38 @@ public class TypeAlarmActivity extends AppCompatActivity {
 
                 if(checkBox_cold.isChecked())
                 {
-                    setCold(true);
+                    setCold("true");
                 }else
                 {
-                    setCold(false);
+                    setCold("false");
                 }
 
 
 
                 if(checkBox_hot.isChecked())
                 {
-                    setHot(true);
+                    setHot("true");
                 }
                 else{
-                    setHot(false);
+                    setHot("false");
                 }
 
 
                 if(checkBox_dust.isChecked())
                 {
-                    setDust(true);
+                    setDust("true");
                 }else
                 {
-                    setDust(false);
+                    setDust("false");
                 }
 
                 if(checkBox_raing.isChecked())
                 {
-                    setRain(true);
+                    setRain("true");
                 }
                 else
                 {
-                    setRain(false);
+                    setRain("false");
                 }
 
                 intent.putExtra("isHot",isHot);
